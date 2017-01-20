@@ -9,7 +9,9 @@
 # Distribution / packaging
 .Python
 env/
-*.pyc
+/.gitignore
+/*.pyc
+/superlist/.*pyc
 build/
 develop-eggs/
 dist/
