@@ -92,6 +92,4 @@ ENV/
 .gitignore
 .idea/
 db.sqlite3
-manage.py
-superlist/
 tdd_django/
