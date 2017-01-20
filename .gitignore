@@ -9,6 +9,7 @@
 # Distribution / packaging
 .Python
 env/
+*.pyc
 build/
 develop-eggs/
 dist/
