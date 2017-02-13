@@ -1,3 +1,7 @@
 superlist/db.sqlite3
 .idea/
 chromedriver.exe
+./chromedriver.exe
+./git
+.idea/
+./db.sqlite3
