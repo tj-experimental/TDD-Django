@@ -1,8 +1,5 @@
 superlist/db.sqlite3
 .idea/
-chromedriver.exe
-./chromedriver.exe
-./git
-.idea/
-./db.sqlite3
-db.sqlite3
+git
+*.pyc
+
