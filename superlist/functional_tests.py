@@ -4,16 +4,19 @@ import sys, time
 import os, platform
 from selenium.webdriver.common.keys import Keys
 
+CHROME_DRIVER = object()
+
 if os.name == 'nt':
-    chrome_driver = '../chromedriver.exe'
-if os.name == 'posix':
-    chrome_driver = '../chrome_driver'
+    # TODO Fix the path to the chrome driver relative to top level os.path.dirname(os.path.abspath(__file__))
+    CHROME_DRIVER = webdriver.Chrome('../chromedriver.exe')
+elif os.name == 'posix':
+    CHROME_DRIVER = webdriver.Chrome('../chrome_driver')
 
 
 class NewVistorsFunctionalTests(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome(chrome_driver)
+        self.browser = CHROME_DRIVER
         self.local_host = 'http://localhost:8000'
         self.browser.implicitly_wait(3)
 
