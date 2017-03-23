@@ -1,23 +1,26 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import service
 import unittest
-import sys, time
-import os, platform
+import sys
+import os
+import time
+import platform
+import platform
 from selenium.webdriver.common.keys import Keys
 
-CHROME_DRIVER = object()
-
-if os.name == 'nt':
-    # TODO Fix the path to the chrome driver relative to top level os.path.dirname(os.path.abspath(__file__))
-    CHROME_DRIVER = webdriver.Chrome('../chromedriver.exe')
-elif os.name == 'posix':
-    CHROME_DRIVER = webdriver.Chrome('../chrome_driver')
+if platform.system() == 'Windows':
+    CHROME_DRIVER = os.path.abspath('chrome_driver.exe')
+else:
+    CHROME_DRIVER = os.path.abspath('chrome_driver')
 
 
 class NewVistorsFunctionalTests(unittest.TestCase):
 
     def setUp(self):
-        self.browser = CHROME_DRIVER
-        self.local_host = 'http://localhost:8000'
+        self.port = 8000
+        self.browser = webdriver.Chrome(executable_path=CHROME_DRIVER,
+                                        port=self.port)
+        self.local_host = 'http://localhost:{}'.format(self.port)
         self.browser.implicitly_wait(3)
 
     def test_can_open_webpage(self):
